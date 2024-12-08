@@ -1,0 +1,39 @@
+{% extends 'choozy/layout.html' %}
+{% load static %}
+
+{% block title %}Rooms{% endblock %}
+
+{% block body %}
+<div id="results-div" class="flex flex-col items-center">
+    <h1 class="text-4xl font-semibold p-12">Hi, {{username}}!</h1>
+
+    <a href="{% url 'create' %}" class="btn text-white bg-orange-600 hover:bg-orange-400">Create room</a>
+
+    {% if rooms %}
+    <div class="overflow-x-auto mt-16 w-full">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Results</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for room in rooms %}
+                <tr>
+                    <th>{{room.id}}</th>
+                    <th>{{room.date_created}}</th>
+                    <th>{{room.city}}, {{room.country_code.upper }}</th>
+                    <th><a href="{% url 'results' room.id %}" class="btn text-white bg-orange-600 hover:bg-orange-400">View Results</a></th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p class="mt-4">No rooms created yet</p>
+    {% endif %}
+</div>
+{% endblock %}

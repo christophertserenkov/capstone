@@ -1,0 +1,176 @@
+{% extends 'choozy/layout.html' %}
+{% load static %}
+
+{% block title %}Sign up{% endblock %}
+
+{% block body %}
+<form action="" method="post">
+    {% csrf_token %}
+
+    {% if error %}
+        <div  class="text-red-500 text-center"> {{error}} </div>
+    {% endif %}
+
+    <div id="bubbles" class="mt-2">
+        <div class="w-full flex justify-center">
+            <p id="selectCusine" class="underline underline-offset-4 cursor-pointer">Cusine</p>
+            <div class="divider divider-horizontal"></div>
+            <p id="selectType" class="cursor-pointer">Type</p>
+        </div>
+
+        <div id="cusine" class="flex mt-4">
+
+            <div class="flex flex-col">
+                <label for="italian">
+                    <img src="{% static 'choozy/src/italian.png' %}" alt="italian label" class="foodimg">
+                    <input type="checkbox" name="category" value="italian" id="italian" class="foodcheck">
+                </label>
+
+                <label for="chinese">
+                    <img src="{% static 'choozy/src/chinese.png' %}" alt="chinese label" class="foodimg">
+                    <input type="checkbox" name="category" value="chinese" id="chinese" class="foodcheck">
+                </label>
+
+                <label for="mexican" class="mt-4">
+                    <img src="{% static 'choozy/src/mexican.png' %}" alt="mexican label" class="foodimg">
+                    <input type="checkbox" name="category" value="mexican" id="mexican" class="foodcheck">
+                </label>
+
+
+                <label for="indian">
+                    <img src="{% static 'choozy/src/indian.png' %}" alt="indian label" class="foodimg">
+                    <input type="checkbox" name="category" value="indian" id="indian" class="foodcheck">
+                </label>
+
+                <label for="mediterranean" class="mt-4">
+                    <img src="{% static 'choozy/src/mediterranean.png' %}" alt="mediterranean label" class="foodimg">
+                    <input type="checkbox" name="category" value="mediterranean" id="mediterranean" class="foodcheck">
+                </label>
+            </div>
+
+
+            <div class="flex flex-col mt-8">
+                <label for="american">
+                    <img src="{% static 'choozy/src/american.png' %}" alt="american label" class="foodimg">
+                    <input type="checkbox" name="category" value="american" id="american" class="foodcheck">
+                </label>
+
+                <label for="french" class="mt-4">
+                    <img src="{% static 'choozy/src/french.png' %}" alt="french label" class="foodimg">
+                    <input type="checkbox" name="category" value="french" id="french" class="foodcheck">
+                </label>
+
+                <label for="brazilian">
+                    <img src="{% static 'choozy/src/brazilian.png' %}" alt="brazilian label" class="foodimg">
+                    <input type="checkbox" name="category" value="brazilian" id="brazilian" class="foodcheck">
+                </label>
+
+                <label for="turkish" class="mt-4">
+                    <img src="{% static 'choozy/src/turkish.png' %}" alt="turkish label" class="foodimg">
+                    <input type="checkbox" name="category" value="turkish" id="turkish" class="foodcheck">
+                </label>
+
+                <label for="japanese">
+                    <img src="{% static 'choozy/src/japanese.png' %}" alt="japanese label" class="foodimg">
+                    <input type="checkbox" name="category" value="japanese" id="japanese" class="foodcheck">
+                </label>
+            </div>
+        </div>
+
+        <div id="type" class="flex mt-4">
+
+            <div class="flex flex-col mt-8">
+                <label for="burgers">
+                    <img src="{% static 'choozy/src/burgers.png' %}" alt="burgers label" class="foodimg">
+                    <input type="checkbox" name="category" value="burgers" id="burgers" class="foodcheck">
+                </label>
+
+                <label for="pizza">
+                    <img src="{% static 'choozy/src/pizza.png' %}" alt="pizza label" class="foodimg">
+                    <input type="checkbox" name="category" value="pizza" id="pizza" class="foodcheck">
+                </label>
+
+                <label for="wings">
+                    <img src="{% static 'choozy/src/wings.png' %}" alt="wings label" class="foodimg">
+                    <input type="checkbox" name="category" value="wings" id="wings" class="foodcheck">
+                </label>
+
+                <label for="kebab">
+                    <img src="{% static 'choozy/src/kebab.png' %}" alt="kebab label" class="foodimg">
+                    <input type="checkbox" name="category" value="kebab" id="kebab" class="foodcheck">
+                </label>
+
+                <label for="soup">
+                    <img src="{% static 'choozy/src/soup.png' %}" alt="soup label" class="foodimg">
+                    <input type="checkbox" name="category" value="soup" id="soup" class="foodcheck">
+                </label>
+            </div>
+
+            <div class="flex flex-col">
+                <label for="tex-mex">
+                    <img src="{% static 'choozy/src/tex-mex.png' %}" alt="tex-mex label" class="foodimg">
+                    <input type="checkbox" name="category" value="tex-mex" id="tex-mex" class="foodcheck">
+                </label>
+
+                <label for="sushi">
+                    <img src="{% static 'choozy/src/sushi.png' %}" alt="sushi label" class="foodimg">
+                    <input type="checkbox" name="category" value="sushi" id="sushi" class="foodcheck">
+                </label>
+
+                <label for="bbq">
+                    <img src="{% static 'choozy/src/bbq.png' %}" alt="bbq label" class="foodimg">
+                    <input type="checkbox" name="category" value="bbq" id="bbq" class="foodcheck">
+                </label>
+
+                <label for="salad">
+                    <img src="{% static 'choozy/src/salad.png' %}" alt="salad label" class="foodimg">
+                    <input type="checkbox" name="category" value="salad" id="salad" class="foodcheck">
+                </label>
+
+                <label for="dessert">
+                    <img src="{% static 'choozy/src/dessert.png' %}" alt="dessert label" class="foodimg">
+                    <input type="checkbox" name="category" value="dessert" id="dessert" class="foodcheck">
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div id="radios" class="mt-8">
+        <h1 class="w-full text-center font-medium text-gray-400 text-xl mb-2">Choose price</h1>
+        <div class="flex items-center gap-4">
+            <p class="text-2xl text-bold text-gray-600">$</p>
+            <div class="flex items-center gap-2">
+                <input type="radio" name="price" value="1" class="radio" required/>
+                <input type="radio" name="price" value="2" class="radio" />
+                <input type="radio" name="price" value="3" class="radio" />
+                <input type="radio" name="price" value="4" class="radio" />
+            </div>
+            <p class="text-2xl text-bold text-gray-600">$$$$</p>
+        </div>
+
+        <div class="form-control mt-8 px-2">
+            <label class="label cursor-pointer">
+              <span class="label-text font-medium text-gray-900 ">Parking</span>
+              <input type="checkbox" name="parking" class="toggle"/>
+            </label>
+        </div>
+
+        <div class="form-control mt-8 px-2">
+            <label class="label cursor-pointer">
+              <span class="label-text font-medium text-gray-900 ">Outdoor seating</span>
+              <input type="checkbox" name="outdoor" class="toggle"/>
+            </label>
+        </div>
+    </div>
+
+    <div class="w-full flex justify-between items-center mt-8">
+        <p id="backButton" class="text-slate-400">Back</p>
+        <div id="placeholder" class="hidden"></div>
+        <div>
+            <input id="nextButton" type="button" value="Next"class="btn text-white bg-orange-600">
+            <input id="submitButton" type="submit" value="Submit" class="btn text-white bg-orange-600 hidden">
+        </div>
+    </div>
+</form>
+<script src="{% static 'choozy/room.js' %}"></script>
+{% endblock %}

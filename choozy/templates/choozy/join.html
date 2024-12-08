@@ -1,0 +1,21 @@
+{% extends 'choozy/layout.html' %}
+{% load static %}
+
+{% block title %}Join{% endblock %}
+
+{% block body %}
+<form action="{% url 'join' room.id %}" method="post" class="w-full flex flex-col items-center gap-2 mt-28" id="joinform">
+    {% csrf_token %}
+    <h1 class="text-4xl font-semibold text-orange-600 w-50">Join {{room.creator}}'s Room</h1>
+    <h1 class="text-slate-500">Type in your name</h1>
+    <div class="flex items-center mt-24">
+        <input id="roomid" name="roomid" type="hidden" value="{{room.id}}">
+        <input id="username" name="name" type="text" placeholder="Name" class="input input-bordered w-full max-w-sm" required/>
+        <input class="btn text-white bg-orange-600 hover:bg-orange-400" type="submit" value="Join">
+    </div>
+    {% if error %} 
+        <div class="badge badge-error gap-2 mt-2"> {{error}} </div>
+    {% endif %}
+</form>
+<script src="{% static 'choozy/join.js' %}"></script>
+{% endblock %}

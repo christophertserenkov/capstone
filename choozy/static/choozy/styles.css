@@ -1,0 +1,254 @@
+.content {
+    margin: 0;
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#logo {
+    width: auto;
+    height: 40px;
+} 
+
+#homepage {
+    padding: 8% 10%;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10%;
+}
+
+#homepage img {
+    width: 50%;
+    height: auto;
+}
+
+.homepage-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.homepage-text h1 {
+    font-size: 40px;
+    font-weight: 600;
+    color: rgb(234 88 12);
+}
+
+.authform {
+    margin-top: 2rem;
+    padding: 2rem 3rem;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.authform h1 {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    color: rgb(70, 70, 70);
+}
+
+.authredirect {
+    width: 100%;
+    text-align: center;
+}
+
+.locationForm {
+    margin-top: 6rem;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#roomAdminPage {
+    scale: 1.15;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    gap: 8rem;
+}
+
+#markers {
+    position: absolute;
+    margin-top: 44rem;
+}
+
+.foodimg {
+    width: 8rem;
+    height: auto;
+    margin: 0.3rem;
+}
+
+.foodcheck {
+    display: none;
+}
+
+.results-list {
+    margin-top: 5%;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+}
+
+.results-card {
+    width: 21rem;
+    height: 21rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* Previous line from w3schools.com (box shadow effect) */
+}
+
+.results-image {
+    width: 100%;
+    height: 50%;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    object-fit: cover;
+}
+
+.results-text {
+    height: 50%;
+    padding: .5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title-rating {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-rating h1 {
+    width: 78.5%;
+    height: 2rem;
+    font-size: x-large;
+    font-weight: bold;
+    text-overflow: clip;
+}
+
+.title-rating p {
+    font-size: large;
+}
+
+.rating-box {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+}
+
+.phone-price {
+    display: flex;
+    gap: 1rem;
+}
+
+.phone-price {
+    font-size: .95rem;
+}
+
+.category-list {
+    display: flex;
+}
+
+.result-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.result-buttons a {
+    scale: .95;
+}
+
+#results-div {
+    width: 55%;
+}
+
+@media (min-width: 768px) {
+    .results-list {
+        margin-top: 8%;
+        scale: 1.1;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .content {
+        margin: 0;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #logo {
+        width: auto;
+        height: 24px;
+    }
+
+    #homepage {
+        padding: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 4rem;
+    }
+
+    .homepage-text {
+        width: 100%;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .homepage-text h1 {
+        text-align: center;
+    }
+
+    #homepage img {
+        width: 100%;
+    }
+
+    .authform {
+        margin-top: 2rem;
+        width: 100%;
+    }
+
+    .locationForm {
+        margin-top: 2rem;
+        width: 80%;
+    }
+
+    #roomAdminPage {
+        scale: 1;
+        margin-top: 6rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .results-list {
+        justify-content: center;
+    }
+
+    #results-div {
+        width: 100%;
+    }
+}

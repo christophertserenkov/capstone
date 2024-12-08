@@ -1,0 +1,59 @@
+{% extends 'choozy/layout.html' %}
+{% load static %}
+
+{% block title %}Results{% endblock %}
+
+{% block body %}
+<div class="w-11/12 mb-32">
+    <div class="results-list">
+        {% if not restraunts %}
+            <p>No restraunts found</p>
+        {% endif %}
+        {% for restraunt in restraunts %}
+        <div class="results-card">
+    
+            {% if restraunt.image_url %}
+            <img src="{{restraunt.image_url}}" alt="restraunt image" class="results-image">
+            {% else %}
+            <img src="https://i.sstatic.net/y9DpT.jpg" alt="restraunt image" class="results-image">
+            {% endif %}
+            
+            <div class="results-text">
+                <div>
+                    <div class="title-rating">
+                        <h1 class="truncate">{{restraunt.restraunt_name}}</h1>
+        
+                        <div class="rating-box">
+                            <img src="https://cdn-icons-png.flaticon.com/256/1828/1828884.png" alt="star" class="w-5 h-5">
+                            <p>{{restraunt.rating}} </p>
+                        </div>
+        
+                    </div>
+                    <div class="phone-price">
+                        {% if restraunt.display_phone %}
+                            <a href="tel:{{restraunt.phone}}">{{restraunt.display_phone}}</a>
+                        {% else %}
+                            <p class="text-gray-400">No phone number</p>
+                        {% endif %}
+                        <p class="text-gray-400">{{restraunt.price}}</p>
+                    </div>
+                    <div class="flex gap-1 mt-1 flex-wrap">
+                        {% for category in restraunt.category_list %}
+                        <span class="badge">{{category}}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+    
+                <div class="result-buttons">
+                    <a href="{{restraunt.yelp_url}}" class="btn text-white px-6 py-0.5 bg-orange-600 hover:bg-orange-400  {% if not restraunt.menu_url %} w-full {% endif %}">View on Yelp</a>
+                    {% if restraunt.menu_url %}
+                    <a href="{{restraunt.menu_url}}" class="btn text-white px-6 py-0.5 bg-fuchsia-800 hover:bg-fuchsia-600">View Menu</a>
+                    {% endif %}
+                </div>
+    
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

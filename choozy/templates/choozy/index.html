@@ -1,0 +1,17 @@
+{% extends 'choozy/layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<div id="homepage">
+        <div class="homepage-text">
+            <h1>The go-to site to decide where to eat</h1>
+            {% if request.user.is_authenticated %}
+            <div><a href="{% url 'create' %}" class="btn text-white bg-orange-600 hover:bg-orange-400">Create room</a></div>
+            {% else %}
+            <div><a href="{% url 'register' %}" class="btn text-white bg-orange-600 hover:bg-orange-400">Sign up today</a></div>
+            {% endif %}
+        </div>
+        <img src="https://t4.ftcdn.net/jpg/05/01/97/01/360_F_501970157_DA8dj2g9zkVTRBZoFgz4O2ad0Mpxk2N4.jpg" alt="group of friends">
+</div>
+{% endblock %}

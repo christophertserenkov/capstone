@@ -1,0 +1,35 @@
+{% extends 'choozy/layout.html' %}
+{% load static %}
+
+{% block title %}Create{% endblock %}
+
+{% block body %}
+<form action="{% url 'create' %}" method="post" class="locationForm">
+    {% csrf_token %}
+
+    <div id="loading" class="w-full flex justify-center"></div>
+
+    <div class="w-full flex justify-center"><p class="text-red-500 text-center" id="error">{% if errormessage %} {{errormessage}} {% endif %}</p></div>
+    
+    <label class="label cursor-pointer gap"> 
+        <span class="label-text text-base">Use current location</span>
+        <input name="current_location" type="checkbox" class="toggle" id="location-check"/>
+    </label>
+
+    <select name="country" class="select select-bordered w-full" id="location-country">
+        <option disabled selected>Country</option>
+    </select>
+
+    <select name="city" class="select select-bordered w-full" id="location-city">
+        <option disabled selected>City</option>
+    </select>
+
+    <input name="latitude" id="latitude" type="hidden">
+    <input name="longitude" id="longitude" type="hidden">
+
+    <div class="w-full flex flex-col items-center space-y-2">
+        <input class="btn w-1/2" type="submit" value="Create room" id="submit">
+    </div>
+</form>
+<script src="{% static 'choozy/create.js' %}"></script>
+{% endblock %}

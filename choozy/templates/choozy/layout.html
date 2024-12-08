@@ -1,0 +1,46 @@
+{% load static %}
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{% static 'choozy/styles.css' %}">
+    {% tailwind_css %}
+    <title>{% block title %}Choozy - {% endblock %}</title>
+</head>
+<body>
+    <div class="content">
+        <div class="navbar bg-base-100">
+            <div class="navbar-start">
+                <a href="{% url 'index' %}" class="btn btn-ghost text-xl"><img src="{% static 'choozy/src/logo.png' %}" alt="logo" id="logo"></a>
+            </div>
+            <div class="navbar-end">
+                <details class="dropdown dropdown-end">
+                    <summary class="btn m-1 btn-circle swap swap-rotate">
+                        <svg class="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"/></svg>
+                    </summary>
+                    <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                      <li><a href="{% url 'index' %}">Home</a></li>
+
+                      {% if not request.user.is_authenticated %}
+                      <li><a href="{% url 'login' %}">Log In</a></li>
+                      <li><a href="{% url 'register' %}" class="btn text-white bg-orange-600">Sign Up</a></li>
+                      {% endif %}
+
+                      {% if request.user.is_authenticated %}
+                      <li><a href="{% url 'rooms' %}">Rooms</a></li>
+                      <li><a href="{% url 'logout' %}">Log out</a></li>
+                      <li><a href="{% url 'create' %}" class="btn text-white bg-orange-600">Create room</a></li>
+                      {% endif %}
+                    </ul>
+                  </details>
+            </div>
+        </div>
+        {% block body %}
+        {% endblock %}
+    </div>
+</body>
+</html>
