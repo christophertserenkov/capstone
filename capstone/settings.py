@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 INSTALLED_APPS = [
     'choozy',
     'rest_framework',
-    'tailwind',
+    'django_tailwind',
     'theme',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -135,3 +135,4 @@ LOGIN_URL = '/login'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
